@@ -1,0 +1,29 @@
+{
+  "name": "weekend3calculator",
+  "version": "1.0.0",
+  "description": "calculator for weekend challenge 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mculotta120/calculator_wk3.git"
+  },
+  "keywords": [
+    "calculator",
+    "nu",
+    "weekend",
+    "3",
+    "challenge"
+  ],
+  "author": "margaret.culotta@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mculotta120/calculator_wk3/issues"
+  },
+  "homepage": "https://github.com/mculotta120/calculator_wk3#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
