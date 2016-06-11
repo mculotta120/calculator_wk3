@@ -1,6 +1,10 @@
-var divide = function(){
-  return ('we are doing some division in here.');
+var divide = function(numberX, numberY){
+  return "the answer is: " + (parseInt(numberX) / parseInt(numberY));
 };
+// var divide = function(){
+//   return "testing divide";
+// };
+
 divide();
 
 module.exports = divide;

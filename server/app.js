@@ -5,11 +5,13 @@ var subtract = require("../modules/subtract.js");
 var multiply = require("../modules/multiply.js");
 var divide = require("../modules/divide.js");
 var path = require("path");
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded( { extended:false } );
 
 app.use(express.static('public')); // allow use of public files
 
-var server = app.listen(process.env.PORT || 3000, function () {
-  console.log("listening on port 3000");
+var server = app.listen(process.env.PORT || 8080, function () {
+  console.log("listening on port 8080");
 } );//end of app.listen
 
 app.get('/', function (req, res) {
@@ -25,13 +27,36 @@ app.get('/index', function (req, res) {
 
 });
 
-app.get('/pathGet', function (req, res) {
+// urlencodedParser "dependency injection" is needed for POST
+app.post( '/processPost', urlencodedParser, function( req, res){
+  var equasionObject = {valueX : req.body.valueXIn,
+                        valueY : req.body.valueYIn,
+                        type : req.body.method };
+  // // receives a POST request from the form on getTest.html (route: gettinTestyWithIt)
+  // res.write( 'post request received: ' + equasionObject.valueX + equasionObject.valueY + equasionObject.type);
 
-  res.write( add() );
-  res.write( subtract() );
-  res.write( multiply() );
-  res.write( divide() );
+  if( equasionObject.type == 'addition'){
+          res.write( add(equasionObject.valueX, equasionObject.valueY ) );
+  }
+  else if(equasionObject.type == 'subtraction'){
+          res.write( subtract(equasionObject.valueX, equasionObject.valueY ) );
+    }
+  else if(equasionObject.type == 'multiplication'){
+          res.write( multiply(equasionObject.valueX, equasionObject.valueY ) );
+      }
+  else{
+          res.write( divide(equasionObject.valueX,equasionObject.valueY ) );
+
+  }
   res.end();
-  });//end of app.get / pathGet
+});
+// app.get('/pathGet', function (req, res) {
+//
+//   res.write( add() );
+//   res.write( subtract() );
+//   res.write( multiply() );
+//   res.write( divide() );
+//   res.end();
+//   });//end of app.get / pathGet
 
 // app.get('/pathName', function (req, res) {

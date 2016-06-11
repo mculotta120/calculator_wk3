@@ -1,6 +1,9 @@
-var subtract = function(){
-  return ('we are doing some subtraction in here.');
+var subtract = function(numberX, numberY){
+  return "the answer is: " + (parseInt(numberX) - parseInt(numberY));
 };
+// var subtract = function(){
+//   return "testing subtract";
+// };
 subtract();
 
 module.exports = subtract;

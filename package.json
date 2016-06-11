@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/mculotta120/calculator_wk3#readme",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4"
   }
 }

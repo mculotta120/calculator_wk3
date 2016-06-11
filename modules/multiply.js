@@ -1,6 +1,9 @@
-var multiply = function(){
-  return ('we are doing some multiplication in here.');
+var multiply = function(numberX, numberY){
+  return "the answer is: " + ( parseInt(numberX) * parseInt(numberY));
 };
+// var multiply = function(){
+//   return "testing multiply";
+// };
 multiply();
 
 module.exports = multiply;
