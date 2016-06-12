@@ -1,13 +1,11 @@
- // var valueX= document.getElementById('valueXIn').value;
- // var valueY= document.getElementById('valueYIn').value;
-
 $(document).ready(function(){
   console.log("on load");
   $.ajax({
-         url: 'http://localhost:3000/pathGet',
-         type: "GET",
-         dataType: 'text',
-         success: function( response ){
+         url: "http://localhost:8080/serverSideRepresent",
+         type: "POST",
+         dataType: inputObject,
+         success: function( data ){
+           console.log("ajax in sucess");
          }, // end success function
          statusCode: {
             404: function(){

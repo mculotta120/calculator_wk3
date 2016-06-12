@@ -1,5 +1,6 @@
 var add = function(numberX, numberY){
-  return  "the answer is: " + (parseInt(numberX) + parseInt(numberY));
+var sum = "the answer is: " + (parseInt(numberX) + parseInt(numberY));
+  return sum;
 };
 // var add = function(){
 //   return "testing add";

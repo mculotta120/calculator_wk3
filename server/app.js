@@ -9,10 +9,12 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded( { extended:false } );
 
 app.use(express.static('public')); // allow use of public files
+// app.use(bodyParser.json()); // support json encoded bodies
+// app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-var server = app.listen(process.env.PORT || 8080, function () {
-  console.log("listening on port 8080");
-} );//end of app.listen
+app.listen( 8080, 'localhost', function( req, res ){
+  console.log( 'server up on 8080');
+});
 
 app.get('/', function (req, res) {
   console.log("hey...I'm workin here.");
@@ -28,7 +30,7 @@ app.get('/index', function (req, res) {
 });
 
 // urlencodedParser "dependency injection" is needed for POST
-app.post( '/processPost', urlencodedParser, function( req, res){
+app.post( '/serverSideRepresent', urlencodedParser, function( req, res){
   var equasionObject = {valueX : req.body.valueXIn,
                         valueY : req.body.valueYIn,
                         type : req.body.method };
@@ -36,19 +38,21 @@ app.post( '/processPost', urlencodedParser, function( req, res){
   // res.write( 'post request received: ' + equasionObject.valueX + equasionObject.valueY + equasionObject.type);
 
   if( equasionObject.type == 'addition'){
-          res.write( add(equasionObject.valueX, equasionObject.valueY ) );
+          res.send( add(equasionObject.valueX, equasionObject.valueY ) );
   }
   else if(equasionObject.type == 'subtraction'){
-          res.write( subtract(equasionObject.valueX, equasionObject.valueY ) );
+          res.send( subtract(equasionObject.valueX, equasionObject.valueY ) );
     }
   else if(equasionObject.type == 'multiplication'){
-          res.write( multiply(equasionObject.valueX, equasionObject.valueY ) );
+          res.send( multiply(equasionObject.valueX, equasionObject.valueY ) );
       }
   else{
-          res.write( divide(equasionObject.valueX,equasionObject.valueY ) );
+          res.send( divide(equasionObject.valueX,equasionObject.valueY ) );
 
   }
   res.end();
+
+
 });
 // app.get('/pathGet', function (req, res) {
 //
