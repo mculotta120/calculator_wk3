@@ -8,10 +8,9 @@ var processResponse = function( response ){
   var newParagraph = document.createElement('p');
   // with out output data
   newParagraph.textContent = response;
-  document.getElementById('answer').innerHTML='';
-  document.getElementById('answer').appendChild( newParagraph );
-  document.getElementById('valueXIn').value = "";
-  document.getElementById('valueYIn').value = "";
+  $('#answer').append( newParagraph );
+  $('#valueXIn').val("");
+  $('#valueYIn').val("");
 };
 
 function serverOperation(){ //object to send
