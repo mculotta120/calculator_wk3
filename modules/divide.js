@@ -1,5 +1,5 @@
 var divide = function(numberX, numberY){
-  var quotient = "the answer is: " + (parseInt(numberX) / parseInt(numberY));
+  var quotient = numberX + " ÷ " + numberY + " is: " + (parseInt(numberX) / parseInt(numberY));
   return quotient;
 };
 // var divide = function(){

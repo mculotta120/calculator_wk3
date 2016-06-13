@@ -1,5 +1,5 @@
 var subtract = function(numberX, numberY){
-  var difference = "the answer is: " + (parseInt(numberX) - parseInt(numberY));
+  var difference = numberX + " - " + numberY + " is: "  + (parseInt(numberX) - parseInt(numberY));
   return difference;
 };
 // var subtract = function(){

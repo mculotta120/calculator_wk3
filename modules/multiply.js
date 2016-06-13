@@ -1,5 +1,5 @@
 var multiply = function(numberX, numberY){
-  var product = "the answer is: " + ( parseInt(numberX) * parseInt(numberY));
+  var product = numberX + " × " + numberY + " is: " + ( parseInt(numberX) * parseInt(numberY));
   return product;
 };
 // var multiply = function(){
