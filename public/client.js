@@ -4,10 +4,12 @@
       event.preventDefault();
       console.log( 'calc clicked' );
       serverOperation();
-
+});
 });
 var processResponse = function( response )
 {
+  // $('#answer').text(response);
+  console.log("processResponse");
   var newParagraph = document.createElement('p');
   // with out output data
   newParagraph.textContent = response;
@@ -15,17 +17,16 @@ var processResponse = function( response )
   document.getElementById('answer').appendChild( newParagraph );
 };
 
-function serverOperation()
-{
+function serverOperation(){
   var x = $('#valueXIn').val();
   var y = $('#valueYIn').val();
   var type = $('#method').val();
-  console.log( 'inputX: ' + x + method + " inputY: " + y  );
+  console.log( 'inputX: ' + x + type + " inputY: " + y  );
 
   var equasionObject ={
     "value x": x,
     "value y": y,
-    "type": method
+    "type": type
   };
   console.log( equasionObject );
   // post with ajax;
@@ -46,4 +47,3 @@ function serverOperation()
            } // end statusCode
          }); // end ajax request
 }
-    });
