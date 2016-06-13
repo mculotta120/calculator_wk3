@@ -8,6 +8,7 @@ var processResponse = function( response ){
   var newParagraph = document.createElement('p');
   // with out output data
   newParagraph.textContent = response;
+  $('#answer').empty();
   $('#answer').append( newParagraph );
   $('#valueXIn').val("");
   $('#valueYIn').val("");
