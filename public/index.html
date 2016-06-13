@@ -9,12 +9,10 @@
   <body>
     <div id= calculator>
     <h2> Calculator </h2>
-<form action="http://localhost:8080/serverSideRepresent" method="post">
-        <div id = "problem">
-        </div>
+    <form action="http://localhost:8080/serverSideRepresent" method="post">
     <p>
-    Enter a Number: <input type= 'text' name= 'valueXIn' value= "">
-    Enter a Second Number: <input type= 'text' name= 'valueYIn' value= ""><br>
+    Enter a Number: <input type= 'text' name= 'valueXIn' id= 'valueXIn' value= "">
+    Enter a Second Number: <input type= 'text' name= 'valueYIn' id= 'valueYIn' value= ""><br>
     </p>
   <select name="method">
   <option value="addition">+</option>
@@ -23,7 +21,7 @@
   <option value="division">÷</option>
   </select>
   <input type="submit" value="Submit" />
-    <div class = "answer">
+    <div id = "answer">
     </div>
 </div>
   </body>

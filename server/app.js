@@ -8,24 +8,17 @@ var path = require("path");
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded( { extended:false } );
 
+app.listen( process.env.PORT || 8080, 'localhost', function(){
+  console.log( 'server up on 8080');
+});
+
 app.use(express.static('public')); // allow use of public files
 // app.use(bodyParser.json()); // support json encoded bodies
 // app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.listen( 8080, 'localhost', function( req, res ){
-  console.log( 'server up on 8080');
-});
-
 app.get('/', function (req, res) {
-  console.log("hey...I'm workin here.");
-  res.writeHead(200);
-  res.write("here I am.");
-  res.end();
-});//end of base app.get
-
-app.get('/index', function (req, res) {
   //console.log(path.resolve("view/index.html"));
-  res.sendFile (path.resolve("public/view/index.html")); // added public/ in front of view - YAYYYYYYYY
+  res.sendFile (path.resolve("public/index.html")); // added public/ in front of view - YAYYYYYYYY
 
 });
 
@@ -50,9 +43,6 @@ app.post( '/serverSideRepresent', urlencodedParser, function( req, res){
           res.send( divide(equasionObject.valueX,equasionObject.valueY ) );
 
   }
-  res.end();
-
-
 });
 // app.get('/pathGet', function (req, res) {
 //

@@ -1,11 +1,43 @@
-$(document).ready(function(){
-  console.log("on load");
+  $( document ).ready( function() {
+    console.log("on load");
+    $('#submit').on('click', function(event){
+      event.preventDefault();
+      console.log( 'calc clicked' );
+      serverOperation();
+
+});
+var processResponse = function( response )
+{
+  var newParagraph = document.createElement('p');
+  // with out output data
+  newParagraph.textContent = response;
+  document.getElementById('answer').innerHTML='';
+  document.getElementById('answer').appendChild( newParagraph );
+};
+
+function serverOperation()
+{
+  var x = $('#valueXIn').val();
+  var y = $('#valueYIn').val();
+  var type = $('#method').val();
+  console.log( 'inputX: ' + x + method + " inputY: " + y  );
+
+  var equasionObject ={
+    "value x": x,
+    "value y": y,
+    "type": method
+  };
+  console.log( equasionObject );
+  // post with ajax;
+
   $.ajax({
-         url: "http://localhost:8080/serverSideRepresent",
+         url: "/serverSideRepresent",
          type: "POST",
-         dataType: inputObject,
+         dataType: equasionObject,
          success: function( data ){
            console.log("ajax in sucess");
+           console.log( 'post successfull: ' + data );
+          processResponse( data );
          }, // end success function
          statusCode: {
             404: function(){
@@ -13,5 +45,5 @@ $(document).ready(function(){
             } // end 404
            } // end statusCode
          }); // end ajax request
-
-});// end on load
+}
+    });
