@@ -8,7 +8,7 @@ var path = require("path");
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded( { extended: false } );
 
-app.listen( process.env.PORT || 8080, 'localhost', function(){
+app.listen( process.env.PORT || 8080, function(){
   console.log( 'server up on 8080');
 });
 
