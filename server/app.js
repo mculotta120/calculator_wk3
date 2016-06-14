@@ -16,7 +16,6 @@ app.use(express.static('public')); // allow use of public files
 
 //base url
 app.get('/', function (req, res) {
-  //console.log(path.resolve("view/index.html"));
   res.sendFile (path.resolve("views/index.html"));
 
 });
@@ -28,7 +27,7 @@ app.post( '/serverSideRepresent', urlencodedParser, function( req, res){
   var equasionObject = {valueX : req.body.x,
                         valueY : req.body.y,
                         type : req.body.type };
-  // // receives a POST request from the form on getTest.html (route: gettinTestyWithIt)
+
   // res.write( 'post request received: ' + equasionObject.valueX + equasionObject.valueY + equasionObject.type);
 
   if( equasionObject.type == 'addition'){
